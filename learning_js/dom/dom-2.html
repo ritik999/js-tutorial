@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg-color{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae repellat tenetur velit aperiam, laudantium amet. Repudiandae quasi omnis culpa eligendi veniam exercitationem, praesentium voluptas fugit, cupiditate possimus dolore porro dolor.</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, cum.</p>
+    </div>
+    <div class="lists">
+        <ul>
+            <li>Javascript</li>
+        </ul>
+    </div>
+</body>
+<script>
+
+    // non-optimise way as innerHtml travel whole dom tree
+    function addLanguage(lanName){
+        const ele=document.createElement('li');
+        ele.innerText=lanName;
+        document.querySelector('.lists').firstElementChild.append(ele);
+    }
+
+    // optimise way
+
+    function addLan(lan){
+        const ele=document.createElement('li');
+        ele.appendChild(document.createTextNode(lan));  // this will directly add child in li without traveling whole tree;
+        document.querySelector('lists').appendChild(ele);
+    }
+
+    addLanguage('python')
+
+    // Edit
+    const firstLan=document.querySelector('.lists')
+    const newLine=document.createElement('li');
+    newLine.textContent='Mojo';
+    firstLan.firstChild.replaceWith(newLine);
+
+    // remove
+    const firLan=document.querySelector('.lists');
+    firLan.firstElementChild.remove();
+</script>
+</html>

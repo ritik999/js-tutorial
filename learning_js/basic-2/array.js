@@ -38,4 +38,9 @@ let c=4;
 
 let d={name:'ritik', age:4, game:'football'};  
 
+let arr8=[1,4,[1,4,4],[1,[2,[4]]]];
+
+console.log(arr8.flat(2));   // flat() merge all depth into one single array. inside () we declear depth
+console.log(arr8.flat(Infinity)); 
+
 
